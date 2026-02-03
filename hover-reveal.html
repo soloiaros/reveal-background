@@ -7,27 +7,53 @@
     <link rel="stylesheet" href="hover-reveal.css" />
   </head>
   <body>
-    <div class="background-image">
+    <div class="header">
+      <div class="right-icons">
+        <img src="icons/menu.svg" alt="menu">
+      </div>
+      <div class="left-icons">
+        <img src="icons/cloud.svg" alt="cloud">
+        <img src="icons/language.svg" alt="language">
+      </div>
+    </div>
+    <div class="hero section">
+      <div class="heading">
+        <h1>Bypass The</h1>
+        <h1>Limits.</h1>
+      </div>
+      <div class="blob-container">
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M 475.5,250.0 C 479.2,291.3 422.5,349.7 385.0,385.0 C 347.4,420.2 298.4,458.0 250.0,461.4 C 201.6,464.8 122.7,440.5 94.7,405.3 C 66.8,370.0 84.7,304.0 82.4,250.0 C 80.2,196.0 53.4,117.2 81.3,81.3 C 109.2,45.4 203.1,25.1 250.0,34.4 C 296.9,43.7 325.4,101.1 363.0,137.0 C 400.6,172.9 471.9,208.7 475.5,250.0 Z"
+            fill="transparent"
+            stroke="#63316d"
+            stroke-width="20"
+            fill-opacity="0"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="background-image section">
       <img src="image-reveal.jpg" alt="abstraction" />
       <p id="integration">
-        <img src="icons/integration.svg" alt="integration">
+        <img src="icons/integration.svg" alt="integration" />
         Easy Integration
       </p>
       <p id="fidelity">
-        <img src="icons/fidelity.svg" alt="fidelity">
+        <img src="icons/fidelity.svg" alt="fidelity" />
         Highest Fidelity
       </p>
       <p id="support">
-        <img src="icons/support.svg" alt="integration">
+        <img src="icons/support.svg" alt="integration" />
         Fast Support
       </p>
       <p id="cake">
-        <img src="icons/cake.svg" alt="cake">
+        <img src="icons/cake.svg" alt="cake" />
         Cake.
       </p>
     </div>
     <svg id="filter-elem" width="0" height="0">
-      <circle id="circle" cx="100" cy="100" r="200" fill="white" />
+      <circle id="circle" cx="750" cy="750" r="250" fill="white" />
       <filter id="filter1">
         <feGaussianBlur stdDeviation="10" in="SourceGraphic" result="BLUR" />
         <feImage href="#circle" result="CIRCLE" />

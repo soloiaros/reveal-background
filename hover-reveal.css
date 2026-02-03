@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.woff2') format('woff2'),
+        url('fonts/Roboto-Regular.woff') format('woff');
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,7 +14,39 @@ body {
   display: grid;
   height: 100vh;
   align-items: center;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  scroll-snap-type: y proximity;
+}
+
+.header {
+  height: 3rem;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+
+.header > div {
+  display: flex;
+  gap: 2rem;
+}
+
+.header img {
+  width: 1.8rem;
+  filter: invert();
+  height: 1.8rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.header img:hover {
+  cursor: pointer;
+  background: rgba(128, 128, 128, 0.383);
+}
+
+.section {
+  scroll-snap-align: start;
 }
 
 .background-image {
@@ -51,13 +92,62 @@ body {
 }
 
 #circle {
-  transition: cx 0.3s ease-out, cy 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
-.overlay {
+.hero {
+  position: relative;
+  color: white;
+  display: grid;
+  place-items: center;
+  padding: 10vh;
+  min-height: 40vw;
+  font-size: clamp(1rem, 1rem + 3vw, 3rem);
+  font-weight: "wght" 900;
+}
+
+.hero .heading {
+  display: flex;
+  gap: 1ch;
+  text-wrap: nowrap;
+}
+
+.hero .heading :nth-child(1) {
+  z-index: 0;
+}
+
+.hero .heading :nth-child(2) {
+  z-index: 2;
+}
+
+.hero .blob-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.hero svg path {
+  animation: blobbiness 20s infinite alternate ease-in-out;
+}
+
+@keyframes blobbiness {
+  0% {
+    d: path("M 475.5,250.0 C 479.2,291.3 422.5,349.7 385.0,385.0 C 347.4,420.2 298.4,458.0 250.0,461.4 C 201.6,464.8 122.7,440.5 94.7,405.3 C 66.8,370.0 84.7,304.0 82.4,250.0 C 80.2,196.0 53.4,117.2 81.3,81.3 C 109.2,45.4 203.1,25.1 250.0,34.4 C 296.9,43.7 325.4,101.1 363.0,137.0 C 400.6,172.9 471.9,208.7 475.5,250.0 Z");
+  }
+  25% {
+    d: path("M 401.1,250.0 C 399.3,299.8 419.0,354.1 393.8,393.8 C 368.6,433.6 297.7,488.7 250.0,488.5 C 202.3,488.2 145.8,432.2 107.6,392.4 C 69.4,352.7 23.1,299.8 20.7,250.0 C 18.3,200.2 55.1,125.1 93.4,93.4 C 131.6,61.6 198.1,59.1 250.0,59.4 C 301.9,59.7 379.5,63.5 404.7,95.3 C 429.9,127.1 402.9,200.2 401.1,250.0 Z");
+  }
+  50% {
+    d: path("M 463.7,250.0 C 465.3,300.1 440.7,371.0 405.1,405.1 C 369.5,439.2 300.0,456.4 250.0,454.7 C 200.0,453.1 135.6,429.1 105.0,395.0 C 74.4,360.9 61.7,293.5 66.5,250.0 C 71.4,206.5 103.5,168.9 134.0,134.0 C 164.6,99.2 206.4,46.0 250.0,41.0 C 293.6,36.1 360.1,69.4 395.7,104.3 C 431.4,139.1 462.1,199.9 463.7,250.0 Z");
+  }
+  75% {
+    d: path("M 478.2,250.0 C 476.6,295.7 420.2,351.5 382.2,382.2 C 344.2,412.9 292.6,435.5 250.0,434.1 C 207.4,432.6 156.3,404.2 126.5,373.5 C 96.8,342.8 76.7,296.5 71.4,250.0 C 66.1,203.5 64.8,123.3 94.6,94.6 C 124.4,65.9 200.5,75.7 250.0,78.0 C 299.5,80.2 353.8,79.4 391.9,108.1 C 429.9,136.8 479.8,204.3 478.2,250.0 Z")
+  }
+  100% {
+    d: path("M 473.4,250.0 C 470.2,302.4 434.8,365.1 397.5,397.5 C 360.3,430.0 296.3,447.4 250.0,444.6 C 203.7,441.8 158.3,413.0 119.4,380.6 C 80.6,348.1 15.1,291.7 16.9,250.0 C 18.7,208.3 91.4,170.6 130.2,130.2 C 169.1,89.9 202.2,15.8 250.0,8.0 C 297.8,0.1 379.6,42.8 416.8,83.2 C 454.1,123.5 476.7,197.6 473.4,250.0 Z");
+  }
 }
