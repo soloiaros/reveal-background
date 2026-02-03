@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="hover-reveal.css" />
+  </head>
+  <body>
+    <div class="background-image">
+      <img src="image-reveal.jpg" alt="abstraction" />
+    </div>
+    <svg id="filter-elem" width="0" height="0">
+      
+      <circle id="circle" cx="100" cy="100" r="200" fill="white" />
+      <filter id="filter1">
+        <feGaussianBlur stdDeviation="10" in="SourceGraphic" result="BLUR" />
+        <feImage href="#circle" result="CIRCLE" />
+        <feGaussianBlur stdDeviation="25" in="CIRCLE" result="CIRCLE-BLUR" />
+        <feColorMatrix in="CIRCLE-BLUR" result="CIRCLE-ALPHA" />
+        <feComposite
+        operator="in"
+        in="SourceGraphic"
+        in2="CIRCLE-ALPHA"
+        result="CLEAR-PART"
+        />
+        <feMerge>
+          <feMergeNode in="BLUR" />
+          <feMergeNode in="CLEAR-PART" />
+        </feMerge>
+      </filter>
+    </svg>
+    <script src="hover-reveal.js"></script>
+  </body>
+</html>
