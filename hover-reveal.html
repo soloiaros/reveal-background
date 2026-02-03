@@ -9,9 +9,24 @@
   <body>
     <div class="background-image">
       <img src="image-reveal.jpg" alt="abstraction" />
+      <p id="integration">
+        <img src="icons/integration.svg" alt="integration">
+        Easy Integration
+      </p>
+      <p id="fidelity">
+        <img src="icons/fidelity.svg" alt="fidelity">
+        Highest Fidelity
+      </p>
+      <p id="support">
+        <img src="icons/support.svg" alt="integration">
+        Fast Support
+      </p>
+      <p id="cake">
+        <img src="icons/cake.svg" alt="cake">
+        Cake.
+      </p>
     </div>
     <svg id="filter-elem" width="0" height="0">
-      
       <circle id="circle" cx="100" cy="100" r="200" fill="white" />
       <filter id="filter1">
         <feGaussianBlur stdDeviation="10" in="SourceGraphic" result="BLUR" />
@@ -19,10 +34,10 @@
         <feGaussianBlur stdDeviation="25" in="CIRCLE" result="CIRCLE-BLUR" />
         <feColorMatrix in="CIRCLE-BLUR" result="CIRCLE-ALPHA" />
         <feComposite
-        operator="in"
-        in="SourceGraphic"
-        in2="CIRCLE-ALPHA"
-        result="CLEAR-PART"
+          operator="in"
+          in="SourceGraphic"
+          in2="CIRCLE-ALPHA"
+          result="CLEAR-PART"
         />
         <feMerge>
           <feMergeNode in="BLUR" />
